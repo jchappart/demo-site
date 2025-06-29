@@ -94,5 +94,31 @@
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
+<footer style="text-align: center; padding: 2rem;">
+  <a href="javascript:Didomi.preferences.show()">Consent choices</a>
+</footer>
+<script type="text/javascript">
+(function(){
+(function(e,r){
+  var t=document.createElement("link");t.rel="preconnect";t.as="script";
+  var n=document.createElement("link");n.rel="dns-prefetch";n.as="script";
+  var i=document.createElement("script");i.id="spcloader";i.type="text/javascript";
+  i["async"]=true;i.charset="utf-8";
+  var o="https://sdk.privacy-center.org/"+e+"/loader.js?target_type=notice&target="+r;
+  if(window.didomiConfig&&window.didomiConfig.user){
+    var a=window.didomiConfig.user;
+    var c=a.country;var d=a.region;
+    if(c){o=o+"&country="+c;if(d){o=o+"&region="+d}}
+  }
+  t.href="https://sdk.privacy-center.org/";
+  n.href="https://sdk.privacy-center.org/";
+  i.src=o;
+  var s=document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(t,s);
+  s.parentNode.insertBefore(n,s);
+  s.parentNode.insertBefore(i,s)
+})("1ed949a5-fa8f-4791-861c-c1bd734232c9","LJAwtCMF")
+})();
+</script>
 </body>
 </html>
