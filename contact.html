@@ -8,7 +8,7 @@
     body {
       font-family: 'Outfit', sans-serif;
       margin: 0;
-      padding: 2rem;
+      padding: 0;
       background-color: #d6d8db;
       color: #0a2540;
     }
@@ -20,13 +20,15 @@
       padding: 20px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       z-index: 1000;
     }
     .home-btn {
-      color: #333333;
+      color: #333;
       font-weight: bold;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      padding-left: 10px;
     }
     .burger {
       width: 30px;
@@ -34,11 +36,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-right: 10px;
       cursor: pointer;
     }
     .burger div {
       height: 4px;
-      background: #333333;
+      background: #333;
       border-radius: 2px;
     }
     nav {
@@ -58,9 +61,11 @@
       padding: 0.5rem 0;
       font-weight: 500;
     }
+    main {
+      padding: 120px 20px 20px;
+    }
     h1 {
       font-size: 2.5rem;
-      margin-top: 100px;
     }
   </style>
 </head>
@@ -78,8 +83,10 @@
       <a href="contact.html">Fog Gray</a>
     </nav>
   </header>
-  <h1>Fog Gray</h1>
-  <p>Feel free to get in touch using this foggy gray theme.</p>
+  <main>
+    <h1>Fog Gray</h1>
+    <p>Feel free to get in touch using this foggy gray theme.</p>
+  </main>
 
   <script>
     function toggleMenu() {
