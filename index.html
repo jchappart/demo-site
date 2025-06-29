@@ -227,6 +227,76 @@
   }
 </script>
 </section>
+<footer style="text-align: center; padding: 1rem;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-size: 0.9rem;">
+    <div>
+      <h4 style="margin-bottom: 0.5rem;">Consent choices</h4>
+      <div style="display: flex; flex-direction: column; gap: 0.3rem;">
+        <a href="javascript:Didomi.notice.show()" style="background: #c8b5e6; color: #0a2540; padding: 0.3rem 1rem;
+          border-radius: 15px; font-weight: 500; text-decoration: none;">Show notice</a>
+        <a href="javascript:Didomi.preferences.show()" style="background: #c8b5e6; color: #0a2540; padding: 0.3rem 1rem;
+          border-radius: 15px; font-weight: 500; text-decoration: none;">Consent choices</a>
+        <a href="javascript:Didomi.reset()" style="background: #c8b5e6; color: #0a2540; padding: 0.3rem 1rem;
+          border-radius: 15px; font-weight: 500; text-decoration: none;">Reset choices</a>
+        <a href="javascript:openPopup()" style="background: #c8b5e6; color: #0a2540; padding: 0.3rem 1rem;
+          border-radius: 15px; font-weight: 500; text-decoration: none;">Set user country</a>
+      </div>
+    </div>
+    <div>
+      <h4 style="margin-bottom: 0.5rem;">Preferences</h4>
+      <a href="javascript:void(0)" style="background: #b0d4f1; color: #0a2540; padding: 0.3rem 1rem;
+        border-radius: 15px; font-weight: 500; text-decoration: none;">Preference center</a>
+    </div>
+    <div>
+      <h4 style="margin-bottom: 0.5rem;">My data</h4>
+      <a href="javascript:void(0)" style="background: #a9a9a9; color: #fff; padding: 0.3rem 1rem;
+        border-radius: 15px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
+    </div>
+  </div>
+</footer>
+
+<div id="locationPopup" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: white; padding: 2rem; border-radius: 10px; width: 90%; max-width: 400px; position: relative; text-align: center;">
+    <button onclick="closePopup()" style="position: absolute; top: 10px; right: 15px; background: transparent; border: none; font-size: 1.2rem; cursor: pointer;">×</button>
+    <h2 style="margin-bottom: 1rem;">Set user location</h2>
+    <input id="userCountry" type="text" placeholder="User country (e.g., US, FR)" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" />
+    <input id="userRegion" type="text" placeholder="User region (optional)" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" />
+    <button onclick="saveLocation()" style="background: #2f80ed; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 20px; font-weight: 500; margin-right: 0.5rem;">Save</button>
+    <button onclick="resetLocation()" style="background: #777; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 20px; font-weight: 500;">Reset</button>
+  </div>
+</div>
+<script>
+  function openPopup() {
+    const storedCountry = localStorage.getItem("didomi_user_country");
+    const storedRegion = localStorage.getItem("didomi_user_region");
+    document.getElementById('userCountry').value = storedCountry || '';
+    document.getElementById('userRegion').value = storedRegion || '';
+    document.getElementById('locationPopup').style.display = 'flex';
+  }
+  function closePopup() {
+    document.getElementById('locationPopup').style.display = 'none';
+  }
+  function saveLocation() {
+    const country = document.getElementById('userCountry').value;
+    const region = document.getElementById('userRegion').value;
+    if (country) {
+      localStorage.setItem("didomi_user_country", country);
+      if (region) {
+        localStorage.setItem("didomi_user_region", region);
+      } else {
+        localStorage.removeItem("didomi_user_region");
+      }
+    }
+    location.reload();
+  }
+  function resetLocation() {
+    localStorage.removeItem("didomi_user_country");
+    localStorage.removeItem("didomi_user_region");
+    location.reload();
+  }
+</script>
+
 
   <script>
     function toggleMenu() {
@@ -234,6 +304,29 @@
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
+<script type="text/javascript">
+(function(){
+(function(e,r){
+  var t=document.createElement("link");t.rel="preconnect";t.as="script";
+  var n=document.createElement("link");n.rel="dns-prefetch";n.as="script";
+  var i=document.createElement("script");i.id="spcloader";i.type="text/javascript";
+  i["async"]=true;i.charset="utf-8";
+  var o="https://sdk.privacy-center.org/"+e+"/loader.js?target_type=notice&target="+r;
+  if(window.didomiConfig&&window.didomiConfig.user){
+    var a=window.didomiConfig.user;
+    var c=a.country;var d=a.region;
+    if(c){o=o+"&country="+c;if(d){o=o+"&region="+d}}
+  }
+  t.href="https://sdk.privacy-center.org/";
+  n.href="https://sdk.privacy-center.org/";
+  i.src=o;
+  var s=document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(t,s);
+  s.parentNode.insertBefore(n,s);
+  s.parentNode.insertBefore(i,s)
+})("1ed949a5-fa8f-4791-861c-c1bd734232c9","LJAwtCMF")
+})();
+</script>
 <script type="text/javascript">
 (function(){
 (function(e,r){
