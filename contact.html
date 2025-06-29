@@ -15,9 +15,18 @@
     header {
       position: fixed;
       top: 0;
-      right: 0;
+      left: 0;
+      width: 100%;
       padding: 20px;
+      display: flex;
+      justify-content: space-between;
       z-index: 1000;
+    }
+    .home-btn {
+      color: #333333;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.2rem;
     }
     .burger {
       width: 30px;
@@ -51,13 +60,13 @@
     }
     h1 {
       font-size: 2.5rem;
-      margin-top: 80px;
+      margin-top: 100px;
     }
   </style>
 </head>
 <body>
-  
   <header>
+    <a href="index.html" class="home-btn">⌂ Home</a>
     <div class="burger" onclick="toggleMenu()">
       <div></div>
       <div></div>
@@ -69,14 +78,14 @@
       <a href="contact.html">Fog Gray</a>
     </nav>
   </header>
+  <h1>Fog Gray</h1>
+  <p>Feel free to get in touch using this foggy gray theme.</p>
+
   <script>
     function toggleMenu() {
       const menu = document.getElementById("navMenu");
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
-
-  <h1>Fog Gray</h1>
-  <p>Feel free to get in touch using this foggy gray theme.</p>
 </body>
 </html>
