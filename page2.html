@@ -1,54 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Deep Sky</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-    body { background-color: #b4d2e7; color: #0a2540; }
-    header { position: fixed; top: 0; left: 0; width: 100%; padding: 20px;
-             display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
-    .home-btn { color: #0a2540; font-weight: bold; text-decoration: none; font-size: 1.5rem; padding-left: 10px; }
-    .burger { width: 30px; height: 20px; display: flex; flex-direction: column;
-              justify-content: space-between; margin-right: 15px; cursor: pointer; }
-    .burger div { height: 4px; background: #0a2540; border-radius: 2px; }
-    nav { position: fixed; top: 60px; right: 20px; background: white; border: 1px solid #ccc;
-          display: none; flex-direction: column; padding: 1rem; border-radius: 10px; }
-    nav a { text-decoration: none; color: #0a2540; padding: 0.5rem 0; font-weight: 500; }
-    h1 { text-align: center; margin-top: 30vh; font-size: 3rem; }
-    a:hover, a:focus { background-color: #e0eaf6; transition: background 0.3s ease; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #c3e9f7;
+      color: #0a2540;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .home-btn {
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.5rem;
+      padding-left: 10px;
+    }
+    .burger {
+      width: 30px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .burger div {
+      height: 4px;
+      background: #333;
+      border-radius: 2px;
+    }
+    nav {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #0a2540;
+      padding: 0.5rem 0;
+      font-weight: 500;
+    }
+    main {
+      padding: 120px 20px 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
   </style>
+
+<script>
+  const storedCountry = localStorage.getItem("didomi_user_country");
+  const storedRegion = localStorage.getItem("didomi_user_region");
+  if (storedCountry) {
+    window.didomiConfig = window.didomiConfig || {};
+    window.didomiConfig.user = {
+      country: storedCountry,
+      region: storedRegion || undefined
+    };
+  }
+</script>
+
 </head>
 <body>
   <header>
     <a href="index.html" class="home-btn">⌂</a>
     <div class="burger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
     <nav id="navMenu">
-      <a href="page1.html">Deep Sky</a>
+      <a href="page1.html">Arctic Blue</a>
       <a href="page2.html">Deep Sky</a>
       <a href="contact.html">Fog Gray</a>
     </nav>
   </header>
-
-  <h1>Deep sky</h1>
+  <main>
+    <h1>Deep Sky</h1>
+    <p>This page presents content in a calm sky blue color.</p>
+  </main>
 
   <script>
     function toggleMenu() {
       const menu = document.getElementById("navMenu");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
-
-    document.addEventListener("click", function(event) {
-      const menu = document.getElementById("navMenu");
-      const burger = document.querySelector(".burger");
-      if (menu && burger && !menu.contains(event.target) && !burger.contains(event.target)) {
-        menu.style.display = "none";
-      }
-    });
   </script>
+
+<footer style="text-align: center; padding: 2rem;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem;">
+    <div>
+      <h4 style="margin-bottom: 1rem;">Consent choices</h4>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <a href="javascript:Didomi.notice.show()" style="background: #c8b5e6; color: #0a2540; padding: 0.5rem 1.25rem;
+          border-radius: 20px; font-weight: 500; text-decoration: none;">Show notice</a>
+        <a href="javascript:Didomi.preferences.show()" style="background: #c8b5e6; color: #0a2540; padding: 0.5rem 1.25rem;
+          border-radius: 20px; font-weight: 500; text-decoration: none;">Consent choices</a>
+        <a href="javascript:Didomi.reset()" style="background: #c8b5e6; color: #0a2540; padding: 0.5rem 1.25rem;
+          border-radius: 20px; font-weight: 500; text-decoration: none;">Reset choices</a>
+        <a href="javascript:openPopup()" style="background: #c8b5e6; color: #0a2540; padding: 0.5rem 1.25rem;
+          border-radius: 20px; font-weight: 500; text-decoration: none;">Set user country</a>
+      </div>
+    </div>
+    <div>
+      <h4 style="margin-bottom: 1rem;">Preferences</h4>
+      <a href="javascript:Didomi.preferences.show()" style="background: #b0d4f1; color: #0a2540; padding: 0.5rem 1.25rem;
+        border-radius: 20px; font-weight: 500; text-decoration: none;">Preference center</a>
+    </div>
+    <div>
+      <h4 style="margin-bottom: 1rem;">My data</h4>
+      <a href="javascript:Didomi.preferences.show()" style="background: #a9a9a9; color: #fff; padding: 0.5rem 1.25rem;
+        border-radius: 20px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
+    </div>
+  </div>
+</footer>
+
+<div id="locationPopup" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: white; padding: 2rem; border-radius: 10px; width: 90%; max-width: 400px; position: relative; text-align: center;">
+    <button onclick="closePopup()" style="position: absolute; top: 10px; right: 15px; background: transparent; border: none; font-size: 1.2rem; cursor: pointer;">×</button>
+    <h2 style="margin-bottom: 1rem;">Set user location</h2>
+    <input id="userCountry" type="text" placeholder="User country (e.g., US, FR)" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" />
+    <input id="userRegion" type="text" placeholder="User region (optional)" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" />
+    <button onclick="saveLocation()" style="background: #2f80ed; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 20px; font-weight: 500; margin-right: 0.5rem;">Save</button>
+    <button onclick="resetLocation()" style="background: #777; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 20px; font-weight: 500;">Reset</button>
+  </div>
+</div>
+<script>
+  function openPopup() {
+    const storedCountry = localStorage.getItem("didomi_user_country");
+    const storedRegion = localStorage.getItem("didomi_user_region");
+    document.getElementById('userCountry').value = storedCountry || '';
+    document.getElementById('userRegion').value = storedRegion || '';
+    document.getElementById('locationPopup').style.display = 'flex';
+  }
+  function closePopup() {
+    document.getElementById('locationPopup').style.display = 'none';
+  }
+  function saveLocation() {
+    const country = document.getElementById('userCountry').value;
+    const region = document.getElementById('userRegion').value;
+    if (country) {
+      localStorage.setItem("didomi_user_country", country);
+      if (region) {
+        localStorage.setItem("didomi_user_region", region);
+      } else {
+        localStorage.removeItem("didomi_user_region");
+      }
+    }
+    location.reload();
+  }
+  function resetLocation() {
+    localStorage.removeItem("didomi_user_country");
+    localStorage.removeItem("didomi_user_region");
+    location.reload();
+  }
+</script>
+<script type="text/javascript">
+(function(){
+(function(e,r){
+  var t=document.createElement("link");t.rel="preconnect";t.as="script";
+  var n=document.createElement("link");n.rel="dns-prefetch";n.as="script";
+  var i=document.createElement("script");i.id="spcloader";i.type="text/javascript";
+  i["async"]=true;i.charset="utf-8";
+  var o="https://sdk.privacy-center.org/"+e+"/loader.js?target_type=notice&target="+r;
+  if(window.didomiConfig&&window.didomiConfig.user){
+    var a=window.didomiConfig.user;
+    var c=a.country;var d=a.region;
+    if(c){o=o+"&country="+c;if(d){o=o+"&region="+d}}
+  }
+  t.href="https://sdk.privacy-center.org/";
+  n.href="https://sdk.privacy-center.org/";
+  i.src=o;
+  var s=document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(t,s);
+  s.parentNode.insertBefore(n,s);
+  s.parentNode.insertBefore(i,s)
+})("1ed949a5-fa8f-4791-861c-c1bd734232c9","LJAwtCMF")
+})();
+</script>
 </body>
 </html>
