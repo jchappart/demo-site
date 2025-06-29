@@ -143,7 +143,15 @@
       <p>This is a demo website</p>
       <a href="page1.html">See more</a>
     </div>
-  </section>
+  
+<footer style="position: absolute; bottom: 20px; width: 100%; text-align: center; z-index: 2;">
+  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+    <a href="javascript:Didomi.preferences.show()" style="background: white; color: #0a2540; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Consent choices</a>
+    <a href="javascript:Didomi.preferences.show()" style="background: white; color: #0a2540; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Preference center</a>
+    <a href="javascript:Didomi.preferences.show()" style="background: white; color: #0a2540; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
+  </div>
+</footer>
+</section>
 
   <script>
     function toggleMenu() {
@@ -151,9 +159,6 @@
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
-<footer style="text-align: center; padding: 2rem;">
-  <a href="javascript:Didomi.preferences.show()">Consent choices</a>
-</footer>
 <script type="text/javascript">
 (function(){
 (function(e,r){
