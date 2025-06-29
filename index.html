@@ -1,27 +1,149 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Polar Voyages</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polar Vibes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background-color: #f8fafd;
+      color: #0a2540;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .burger {
+      width: 30px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .burger div {
+      height: 4px;
+      background: #0a2540;
+      border-radius: 2px;
+    }
+
+    nav {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0a2540;
+      padding: 0.5rem 0;
+      font-weight: 500;
+    }
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1604560568888-96c3ba3eb5f7?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 30, 60, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero a {
+      background-color: #fff;
+      color: #0a2540;
+      padding: 0.75rem 2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .hero a:hover {
+      background-color: #e0eaf6;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Polar Voyages</h1>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="navMenu">
+      <a href="page1.html">Page 1</a>
+      <a href="page2.html">Page 2</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="media.html">Media</a>
-    <a href="app.html">App</a>
-  </nav>
-  <main>
-    <h2>Explore the ends of the Earth</h2>
-    <p>Discover breathtaking polar landscapes, icy adventures and unforgettable experiences.</p>
-    <img src="https://images.unsplash.com/photo-1549880181-56a44cf4b7f5?auto=format&fit=crop&w=1350&q=80" alt="Polar expedition">
-  </main>
-  <footer>
-    &copy; 2025 Polar Voyages — Demo Website
-  </footer>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Polar vibes</h1>
+      <p>this is a demo website</p>
+      <a href="#">see more</a>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 </body>
 </html>
