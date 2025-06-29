@@ -9,16 +9,74 @@
       font-family: 'Outfit', sans-serif;
       margin: 0;
       padding: 2rem;
-      background-color: #00bfff;
-      color: #fff;
+      background-color: #c3e9f7;
+      color: #0a2540;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .burger {
+      width: 30px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .burger div {
+      height: 4px;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+    nav {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      display: none;
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #0a2540;
+      padding: 0.5rem 0;
+      font-weight: 500;
     }
     h1 {
       font-size: 2.5rem;
+      margin-top: 80px;
     }
   </style>
 </head>
 <body>
+  
+  <header>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="navMenu">
+      <a href="page1.html">Arctic Blue</a>
+      <a href="page2.html">Deep Sky</a>
+      <a href="contact.html">Fog Gray</a>
+    </nav>
+  </header>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+
   <h1>Deep Sky</h1>
-  <p>This page presents content in a fresh deep sky color.</p>
+  <p>This page presents content in a calm sky blue color.</p>
 </body>
 </html>

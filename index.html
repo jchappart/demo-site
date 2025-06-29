@@ -14,16 +14,11 @@
     }
     body, html {
       height: 100%;
-      background-color: #f8fafd;
-      color: #0a2540;
     }
     header {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
+      right: 0;
       padding: 20px;
       z-index: 1000;
     }
@@ -37,7 +32,7 @@
     }
     .burger div {
       height: 4px;
-      background: #0a2540;
+      background: white;
       border-radius: 2px;
     }
     nav {
@@ -58,39 +53,43 @@
       font-weight: 500;
     }
     .hero {
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
       position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
     }
-    .hero::before {
-      content: "";
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
       position: absolute;
-      inset: 0;
-      background: rgba(0, 30, 60, 0.5);
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
     .hero-content {
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      color: white;
     }
-    .hero h1 {
+    .hero-content h1 {
       font-size: 4rem;
       margin-bottom: 1rem;
       font-weight: 700;
     }
-    .hero p {
+    .hero-content p {
       font-size: 1.5rem;
       margin-bottom: 2rem;
       font-weight: 300;
     }
-    .hero a {
+    .hero-content a {
       background-color: #fff;
       color: #0a2540;
       padding: 0.75rem 2rem;
@@ -99,7 +98,7 @@
       text-decoration: none;
       transition: background 0.3s;
     }
-    .hero a:hover {
+    .hero-content a:hover {
       background-color: #e0eaf6;
     }
   </style>
@@ -119,6 +118,7 @@
   </header>
 
   <section class="hero">
+    <img src="background.jpg" alt="Polar Ice Background">
     <div class="hero-content">
       <h1>Polar Vibes</h1>
       <p>This is a demo website</p>
