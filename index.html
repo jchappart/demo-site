@@ -149,8 +149,54 @@
     <a href="javascript:Didomi.preferences.show()" style="background: white; color: #0a2540; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Consent choices</a>
     <a href="javascript:Didomi.preferences.show()" style="background: white; color: #0a2540; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Preference center</a>
     <a href="javascript:Didomi.preferences.show()" style="background: white; color: #0a2540; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
-  </div>
+  
+<a href="javascript:openPopup()" style="background: #27ae60; color: white; padding: 0.5rem 1.25rem;
+  border-radius: 20px; font-weight: 500; text-decoration: none;">Set user country</a>
+</div>
 </footer>
+
+<div id="locationPopup" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: white; padding: 2rem; border-radius: 10px; width: 90%; max-width: 400px; position: relative; text-align: center;">
+    <button onclick="closePopup()" style="position: absolute; top: 10px; right: 15px; background: transparent; border: none; font-size: 1.2rem; cursor: pointer;">×</button>
+    <h2 style="margin-bottom: 1rem;">Set user location</h2>
+    <input id="userCountry" type="text" placeholder="User country (e.g., US, FR)" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" />
+    <input id="userRegion" type="text" placeholder="User region (optional)" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" />
+    <button onclick="saveLocation()" style="background: #2f80ed; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 20px; font-weight: 500; margin-right: 0.5rem;">Save</button>
+    <button onclick="resetLocation()" style="background: #777; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 20px; font-weight: 500;">Reset</button>
+  </div>
+</div>
+
+<script>
+  function openPopup() {
+    document.getElementById('locationPopup').style.display = 'flex';
+  }
+
+  function closePopup() {
+    document.getElementById('locationPopup').style.display = 'none';
+  }
+
+  function saveLocation() {
+    const country = document.getElementById('userCountry').value;
+    const region = document.getElementById('userRegion').value;
+    window.didomiConfig = window.didomiConfig || {};
+    window.didomiConfig.user = {};
+    if (country) {
+      window.didomiConfig.user.country = country;
+      if (region) {
+        window.didomiConfig.user.region = region;
+      }
+    }
+    location.reload();
+  }
+
+  function resetLocation() {
+    if (window.didomiConfig && window.didomiConfig.user) {
+      delete window.didomiConfig.user;
+    }
+    location.reload();
+  }
+</script>
 </section>
 
   <script>
