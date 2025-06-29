@@ -87,6 +87,7 @@
       z-index: -1;
     }
     .hero-content {
+      transform: translateY(-10%);
       position: relative;
       z-index: 1;
       display: flex;
@@ -158,29 +159,33 @@
     </div>
   
 <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 20, 40, 0.6); padding: 1rem 0; z-index: 2;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-size: 0.9rem; color: white;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-size: 0.9rem; color: white; text-align: center;">
     <div>
       <h4 style="margin-bottom: 0.5rem;">Consent choices</h4>
-      <div style="display: flex; flex-direction: column; gap: 0.3rem;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.3rem;">
         <a href="javascript:Didomi.notice.show()" style="background: #ffffff; color: #0a2540; padding: 0.3rem 1rem;
           border-radius: 15px; font-weight: 500; text-decoration: none;">Show notice</a>
         <a href="javascript:Didomi.preferences.show()" style="background: #ffffff; color: #0a2540; padding: 0.3rem 1rem;
           border-radius: 15px; font-weight: 500; text-decoration: none;">Consent choices</a>
         <a href="javascript:Didomi.reset()" style="background: #ffffff; color: #0a2540; padding: 0.3rem 1rem;
           border-radius: 15px; font-weight: 500; text-decoration: none;">Reset choices</a>
-        <a href="javascript:openPopup()" style="background: #ffffff; color: #0a2540; padding: 0.3rem 1rem;
+        <a href="javascript:openPopup()" style="background: #c8b5e6; color: #0a2540; padding: 0.3rem 1rem;
           border-radius: 15px; font-weight: 500; text-decoration: none;">Set user country</a>
       </div>
     </div>
     <div>
       <h4 style="margin-bottom: 0.5rem;">Preferences</h4>
-      <a href="javascript:void(0)" style="background: #ffffff; color: #0a2540; padding: 0.3rem 1rem;
-        border-radius: 15px; font-weight: 500; text-decoration: none;">Preference center</a>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <a href="javascript:void(0)" style="background: #b0d4f1; color: #0a2540; padding: 0.3rem 1rem;
+          border-radius: 15px; font-weight: 500; text-decoration: none;">Preference center</a>
+      </div>
     </div>
     <div>
       <h4 style="margin-bottom: 0.5rem;">My data</h4>
-      <a href="javascript:void(0)" style="background: #ffffff; color: #0a2540; padding: 0.3rem 1rem;
-        border-radius: 15px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <a href="javascript:void(0)" style="background: #a9a9a9; color: #fff; padding: 0.3rem 1rem;
+          border-radius: 15px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
+      </div>
     </div>
   </div>
 </div>
