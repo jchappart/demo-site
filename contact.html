@@ -67,7 +67,13 @@
     h1 {
       font-size: 2.5rem;
     }
-  </style>
+  
+a:hover, a:focus {
+  background-color: #e0eaf6 !important;
+  transition: background 0.3s ease;
+}
+
+</style>
 
 <script>
   const storedCountry = localStorage.getItem("didomi_user_country");
@@ -79,13 +85,22 @@
       region: storedRegion || undefined
     };
   }
+
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("navMenu");
+  const burger = document.querySelector(".burger");
+  if (menu && burger && !menu.contains(event.target) && !burger.contains(event.target)) {
+    menu.style.display = "none";
+  }
+});
+
 </script>
 
 </head>
 <body>
   <header>
     <a href="index.html" class="home-btn">⌂</a>
-    <div class="burger" onclick="toggleMenu()">
+    <div class="burger" style="margin-right: 15px;" onclick="toggleMenu()">
       <div></div>
       <div></div>
       <div></div>
@@ -106,7 +121,16 @@
       const menu = document.getElementById("navMenu");
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
-  </script>
+  
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("navMenu");
+  const burger = document.querySelector(".burger");
+  if (menu && burger && !menu.contains(event.target) && !burger.contains(event.target)) {
+    menu.style.display = "none";
+  }
+});
+
+</script>
 
 <footer style="text-align: center; padding: 2rem;">
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem;">
@@ -176,6 +200,15 @@
     localStorage.removeItem("didomi_user_region");
     location.reload();
   }
+
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("navMenu");
+  const burger = document.querySelector(".burger");
+  if (menu && burger && !menu.contains(event.target) && !burger.contains(event.target)) {
+    menu.style.display = "none";
+  }
+});
+
 </script>
 <script type="text/javascript">
 (function(){
@@ -199,6 +232,15 @@
   s.parentNode.insertBefore(i,s)
 })("1ed949a5-fa8f-4791-861c-c1bd734232c9","LJAwtCMF")
 })();
+
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("navMenu");
+  const burger = document.querySelector(".burger");
+  if (menu && burger && !menu.contains(event.target) && !burger.contains(event.target)) {
+    menu.style.display = "none";
+  }
+});
+
 </script>
 </body>
 </html>
