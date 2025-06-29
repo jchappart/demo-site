@@ -68,6 +68,19 @@
       font-size: 2.5rem;
     }
   </style>
+
+<script>
+  const storedCountry = localStorage.getItem("didomi_user_country");
+  const storedRegion = localStorage.getItem("didomi_user_region");
+  if (storedCountry) {
+    window.didomiConfig = window.didomiConfig || {};
+    window.didomiConfig.user = {
+      country: storedCountry,
+      region: storedRegion || undefined
+    };
+  }
+</script>
+
 </head>
 <body>
   <header>
@@ -101,7 +114,7 @@
     <a href="javascript:Didomi.preferences.show()" style="background: #0a2540; color: white; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Preference center</a>
     <a href="javascript:Didomi.preferences.show()" style="background: #0a2540; color: white; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
   
-<a href="javascript:openPopup()" style="background: #27ae60; color: white; padding: 0.5rem 1.25rem;
+<a href="javascript:openPopup()" style="background: #c8b5e6; color: #0a2540; padding: 0.5rem 1.25rem;
   border-radius: 20px; font-weight: 500; text-decoration: none;">Set user country</a>
 </div>
 </footer>
@@ -117,34 +130,29 @@
     <button onclick="resetLocation()" style="background: #777; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 20px; font-weight: 500;">Reset</button>
   </div>
 </div>
-
 <script>
   function openPopup() {
     document.getElementById('locationPopup').style.display = 'flex';
   }
-
   function closePopup() {
     document.getElementById('locationPopup').style.display = 'none';
   }
-
   function saveLocation() {
     const country = document.getElementById('userCountry').value;
     const region = document.getElementById('userRegion').value;
-    window.didomiConfig = window.didomiConfig || {};
-    window.didomiConfig.user = {};
     if (country) {
-      window.didomiConfig.user.country = country;
+      localStorage.setItem("didomi_user_country", country);
       if (region) {
-        window.didomiConfig.user.region = region;
+        localStorage.setItem("didomi_user_region", region);
+      } else {
+        localStorage.removeItem("didomi_user_region");
       }
     }
     location.reload();
   }
-
   function resetLocation() {
-    if (window.didomiConfig && window.didomiConfig.user) {
-      delete window.didomiConfig.user;
-    }
+    localStorage.removeItem("didomi_user_country");
+    localStorage.removeItem("didomi_user_region");
     location.reload();
   }
 </script>
