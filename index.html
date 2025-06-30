@@ -172,11 +172,23 @@ document.addEventListener("click", function(event) {
 
 </script>
 
+
+<script>
+  window.didomiConfig = {
+    apiKey: '1ed949a5-fa8f-4791-861c-c1bd734232c9',
+    app: { apiKey: '1ed949a5-fa8f-4791-861c-c1bd734232c9' },
+    components: { version: 2 },
+    widgets: [{ id: 'Hz9L4aAF' }]
+  };
+</script>
+<script type="text/javascript" async="true" charset="utf-8"
+        src="https://sdk.privacy-center.org/v2/loader.js"></script>
+
 </head>
 <body>
   <header>
     <a href="index.html" class="home-btn">⌂</a>
-    <div class="burger" style="margin-right: 15px;" onclick="toggleMenu()">
+    <div class="burger" style="margin-right: 15px; max-width: 30px;" style="margin-right: 15px;" onclick="toggleMenu()">
       <div></div>
       <div></div>
       <div></div>
@@ -214,9 +226,8 @@ document.addEventListener("click", function(event) {
     <div>
       <h4 style="margin-bottom: 0.5rem;">Preferences</h4>
       <div style="display: flex; flex-direction: column; align-items: center;">
-      <a href="https://polarvibes.preference-center.org" target="_blank" rel="noopener"
-  style="background: #b0d4f1; color: #0a2540; padding: 0.3rem 1rem;
-  border-radius: 15px; font-weight: 500; text-decoration: none;">Preference center</a>
+        <a href="https://polarvibes.preference-center.org" target="_blank" rel="noopener" style="background: #b0d4f1; color: #0a2540; padding: 0.3rem 1rem;
+          border-radius: 15px; font-weight: 500; text-decoration: none;">Preference center</a>
       </div>
     </div>
     <div>
@@ -224,6 +235,7 @@ document.addEventListener("click", function(event) {
       <div style="display: flex; flex-direction: column; align-items: center;">
         <a href="javascript:void(0)" style="background: #a9a9a9; color: #fff; padding: 0.3rem 1rem;
           border-radius: 15px; font-weight: 500; text-decoration: none;">Exercise my rights</a>
+<didomi-container id="Hz9L4aAF"></didomi-container>
       </div>
     </div>
   </div>
